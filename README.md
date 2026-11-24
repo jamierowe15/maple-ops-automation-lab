@@ -33,8 +33,12 @@ tests        30 regression tests (Regina REXX), run by GitHub Actions
 evidence     job logs, reports and screenshots from the real runs
 ```
 
-## Results (fill in after the lab)
 
-- Monitor live run: OPSJOB1 recovered automatically, try __ of 2; OPSJOB2/3 escalated; OPSJOB5 notified
-- DR drill: fault at step 7 halted the run (RC 8), RESUME completed it (RC 0), switch-back RC 0
-- Release-lab link: MPSTREAM S0C7 detected, INC draft created: INC________
+## Results (run on IBM Z Xplore, 2026-11-23)
+
+- Monitor live run: OPSJOB1 (IEFA107I data set not found) recovered automatically on try 1 of 2 - OPSFIX1 CC 0000, rerun CC 0000, second pass CLEAN
+- OPSJOB2 (CC 8) and OPSJOB3 (S806 abend) escalated; OPSJOB4 logged clean; OPSJOB5 (CC 4) notified
+- DR drill: fault injected at step 7 halted the run (CC 0008), a new run was refused while incomplete (CC 0008), RESUME completed it (CC 0000), switch-back CC 0000
+- Evidence: job logs in evidence/joblogs, alert report in evidence/reports, DR audit trail in evidence/DRLOG.txt
+
+
