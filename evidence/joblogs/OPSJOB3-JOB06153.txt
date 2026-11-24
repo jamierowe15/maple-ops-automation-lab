@@ -1,0 +1,504 @@
+Spool file: JESMSGLG (ID #2, Step: JES2)
+1                   J E S 2  J O B  L O G  --  S Y S T E M  S 0 W 1  --  N O D E  S V S C J E S 2
+0
+ 19.44.56 JOB06153 ---- MONDAY,    23 NOV 2026 ----
+ 19.44.56 JOB06153  IRR010I  USERID Z67944   IS ASSIGNED TO THIS JOB.
+ 19.44.56 JOB06153  ICH70001I Z67944   LAST ACCESS AT 19:44:52 ON MONDAY, NOVEMBER 23, 2026
+ 19.44.56 JOB06153  $HASP373 OPSJOB3  STARTED - INIT 1    - CLASS A        - SYS S0W1
+ 19.44.56 JOB06153  CSV003I REQUESTED MODULE MAPLENOP NOT FOUND
+ 19.44.56 JOB06153  CSV028I ABEND806-04  JOBNAME=OPSJOB3   STEPNAME=STEP1
+ 19.44.57 JOB06153  +IDI0001I Fault Analyzer V15R1M10 (UO07033 2026/03/05) invoked by IDIXDCAP using SVTSC.PARMLIB(IDICNF00)
+ 19.44.58 JOB06153  +IDI0078E Open of fault history file ISM402.HIST failed because: MVS SAF check shows no Write access allowed
+ 19.44.59 JOB06153  +IDI0002I The system load of module MAPLENOP failed
+ 19.45.00 JOB06153  IEA848I NO DUMP WAS PRODUCED FOR THIS ABEND, DUE TO SYSTEM OR INSTALLATION REQUEST
+ 19.45.00 JOB06153  IEF450I OPSJOB3 STEP1 - ABEND=S806 U0000 REASON=00000004
+ 19.45.00 JOB06153  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+ 19.45.00 JOB06153  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+ 19.45.00 JOB06153  -STEP1             *S806   4409     63       .00       .00     .0            91  BATCH        0     0     0     0
+ 19.45.00 JOB06153  -OPSJOB3  ENDED.  NAME-                     TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+ 19.45.00 JOB06153  $HASP395 OPSJOB3  ENDED - ABEND=S806
+0------ JES2 JOB STATISTICS ------
+-  23 NOV 2026 JOB EXECUTION DATE
+-            6 CARDS READ
+-          496 SYSOUT PRINT RECORDS
+-            0 SYSOUT PUNCH RECORDS
+-           20 SYSOUT SPOOL KBYTES
+-         0.05 MINUTES EXECUTION TIME
+
+Spool file: JESJCL (ID #3, Step: JES2)
+        1 //OPSJOB3  JOB 1,NOTIFY=&SYSUID,MSGLEVEL=(1,1)                          JOB06153
+          //*-------------------------------------------------------------------
+          //* TEST JOB 3 - CALLS A PROGRAM THAT DOES NOT EXIST, SO THE STEP
+          //* ABENDS (SYSTEM COMPLETION CODE 806).  EXPECTED ACTION: ESCALATE.
+          //*-------------------------------------------------------------------
+          IEFC653I SUBSTITUTION JCL - 1,NOTIFY=Z67944,MSGLEVEL=(1,1)
+        2 //STEP1    EXEC PGM=MAPLENOP
+
+Spool file: JESYSMSG (ID #4, Step: JES2)
+ ICH70001I Z67944   LAST ACCESS AT 19:44:52 ON MONDAY, NOVEMBER 23, 2026
+ IEFA111I OPSJOB3 IS USING THE FOLLOWING JOB RELATED SETTINGS:
+          SWA=ABOVE,TIOT SIZE=32K,DSENQSHR=DISALLOW,GDGBIAS=JOB
+ CSV003I REQUESTED MODULE MAPLENOP NOT FOUND
+ CSV028I ABEND806-04  JOBNAME=OPSJOB3   STEPNAME=STEP1
+ IGD100I VIO ALLOCATED TO DDNAME SYS00002 DATACLAS (        )
+ IEF285I   SYS26327.T194456.RA000.OPSJOB3.T0594700.H01  DELETED
+ IEF237I DMY  ALLOCATED TO IDITRACE
+ IEF237I 0D2F ALLOCATED TO SYS00003
+ IEF285I   VENDOR.PARMLIB                               KEPT
+ IEF285I   VOL SER NOS= VPMVSE.
+ IEF237I 1005 ALLOCATED TO SYS00004
+ IEF285I   SVTSC.PARMLIB                                KEPT
+ IEF285I   VOL SER NOS= VTMVSG.
+ IEF237I 100E ALLOCATED TO SYS00005
+ IEF285I   LVL0.PARMLIB                                 KEPT
+ IEF285I   VOL SER NOS= VTLVL0.
+ IEF237I 1000 ALLOCATED TO SYS00006
+ IEF285I   SYS1.PARMLIB                                 KEPT
+ IEF285I   VOL SER NOS= VIMVSB.
+ IEF237I 0D2F ALLOCATED TO SYS00007
+ IEF285I   VENDOR.PARMLIB                               KEPT
+ IEF285I   VOL SER NOS= VPMVSE.
+ IEF237I 1005 ALLOCATED TO SYS00008
+ IEF285I   SVTSC.PARMLIB                                KEPT
+ IEF285I   VOL SER NOS= VTMVSG.
+ IEF237I 100E ALLOCATED TO SYS00009
+ IEF285I   LVL0.PARMLIB                                 KEPT
+ IEF285I   VOL SER NOS= VTLVL0.
+ IEF237I 1000 ALLOCATED TO SYS00010
+ IEF285I   SYS1.PARMLIB                                 KEPT
+ IEF285I   VOL SER NOS= VIMVSB.
+ IEF237I 0D2F ALLOCATED TO SYS00011
+ IEF285I   VENDOR.PARMLIB                               KEPT
+ IEF285I   VOL SER NOS= VPMVSE.
+ IEF237I 1005 ALLOCATED TO SYS00012
+ IDI0001I Fault Analyzer V15R1M10 (UO07033 2026/03/05) invoked by IDIXDCAP using SVTSC.PARMLIB(IDICNF00)
+ IEF285I   SVTSC.PARMLIB                                KEPT
+ IEF285I   VOL SER NOS= VTMVSG.
+ IEF237I 1D70 ALLOCATED TO SYS00013
+ IEF285I   ISM402.SIDIDOC1                              KEPT
+ IEF285I   VOL SER NOS= VTISMH.
+ IEF237I 1D72 ALLOCATED TO SYS00014
+ IGD104I ISM402.IDIVSENU                              RETAINED,  DDNAME=SYS00014
+ IEF237I 1D70 ALLOCATED TO SYS00015
+ IEF285I   ISM402.SIDIMAPS                              KEPT
+ IEF285I   VOL SER NOS= VTISMH.
+ IEF237I 1D72 ALLOCATED TO SYS00017
+ IDI0078E Open of fault history file ISM402.HIST failed because: MVS SAF check shows no Write access allowed
+ IEF237I JES2 ALLOCATED TO IDIREPRT
+ IDI0002I The system load of module MAPLENOP failed
+ IEF237I 1D70 ALLOCATED TO SYS00018
+ IEF237I 1D70 ALLOCATED TO SYS00019
+ IEF237I 1D72 ALLOCATED TO SYS00020
+ IEF237I 1D70 ALLOCATED TO SYS00021
+ IEF237I 1D70 ALLOCATED TO SYS00022
+ IEF237I 1D70 ALLOCATED TO SYS00023
+ IEF285I   ISM402.SIDIDOC1                              KEPT
+ IEF285I   VOL SER NOS= VTISMH.
+ IEF237I DMY  ALLOCATED TO SYS00024
+ IEF237I 1D70 ALLOCATED TO SYS00025
+ IEF285I   ISM402.SIDIMAPS                              KEPT
+ IEF285I   VOL SER NOS= VTISMH.
+ IEF237I 1D72 ALLOCATED TO SYS00026
+ IGD104I ISM402.IDIVSENU                              RETAINED,  DDNAME=SYS00026
+ IEF285I   ISM402.HIST                                  KEPT
+ IEF285I   VOL SER NOS= VPISMH.
+ IEF285I   ISM402.SIDIDOC1                              KEPT
+ IEF285I   VOL SER NOS= VTISMH.
+ IEF285I   ISM402.SIDIDOC1                              KEPT
+ IEF285I   VOL SER NOS= VTISMH.
+ IEF285I   ISM402.SIDIDOC1                              KEPT
+ IEF285I   VOL SER NOS= VTISMH.
+ IEF285I   ISM402.SIDIDOC1                              KEPT
+ IEF285I   VOL SER NOS= VTISMH.
+ IGD104I ISM402.IDIVSENU                              RETAINED,  DDNAME=SYS00020
+ IEF285I   Z67944.OPSJOB3.JOB06153.D0000101.?           SYSOUT
+ IEA848I NO DUMP WAS PRODUCED FOR THIS ABEND, DUE TO SYSTEM OR INSTALLATION REQUEST
+ IEF472I OPSJOB3 STEP1 - COMPLETION CODE - SYSTEM=806 USER=0000 REASON=00000004
+ IEF373I STEP/STEP1   /START 2026327.1944
+ IEF032I STEP/STEP1   /STOP  2026327.1945
+         CPU:     0 HR  00 MIN  00.07 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+         VIRT:    88K  SYS:   288K  EXT:    18056K  SYS:    11932K
+         ATB- REAL:                  1340K  SLOTS:                     0K
+              VIRT- ALLOC:      23M SHRD:       0M
+ IEF375I  JOB/OPSJOB3 /START 2026327.1944
+ IEF033I  JOB/OPSJOB3 /STOP  2026327.1945
+         CPU:     0 HR  00 MIN  00.07 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+
+Spool file: IDIREPRT (ID #101, Step: STEP1)
+********************************************************************************
+* IBM Fault Analyzer for z/OS V15R1M10 (UO07033 2026/03/05)                    *
+*                                                                              *
+*     Copyright IBM Corp. 2000, 2017.  All rights reserved.                    *
+*     Copyright HCL Technologies Ltd 2017, 2026.  All rights reserved.         *
+********************************************************************************
+
+JOBNAME: OPSJOB3   SYSTEM ABEND: 806              S0W1      2026/11/23  19:44:56
+
+
+<H1> S Y N O P S I S
+
+
+The system load of module MAPLENOP failed. The load module was not found in the
+standard MVS search path.
+
+This is probably a user error.
+
+Possible reasons for this error include:
+
+o   Incorrect program name on the EXEC JCL statement.
+o   Missing JOBLIB or STEPLIB JCL statement specification of library containing
+    the load module.
+o   Module missing from LINKLIST.
+
+The abend was caused by machine instruction 0A0D (ABEND) in an undetermined
+module.
+
+Important messages:
+
+  CSV003I REQUESTED MODULE MAPLENOP NOT FOUND
+    (See "Event Details" - "Event 1 of 1" - "Associated Messages" for message
+    explanation)
+
+
+<H1> E V E N T   S U M M A R Y
+
+
+The following events are presented in chronological order.
+
+Event           Fail  Module   Program  EP
+#  Type         Point Name     Name     Name     Event Location (*) Description
+-- ------------ ----- -------- -------- -------- ------------------ --------------------------------------------
+ 1 Abend S806   ***** n/a      CSVABEND n/a      P+BA0              From not determined
+
+(*) One or more of the following abbreviations might appear in the "Event
+    Location" column:
+
+    F#n  Source file number (refer to detailed event information for file
+         identification)
+    L#n  Source file line number
+    S#n  Listing file statement number (refer to detailed event information for
+         file identification)
+    M+x  Offset from start of load module
+    P+x  Offset from start of program
+    E+x  Offset from start of entry point
+
+
+<H1> E V E N T   D E T A I L S
+
+
+================================================================================
+<H2> EVENT 1 OF 1: ABEND S806
+
+********************************************************************************
+***********************  P O I N T   O F   F A I L U R E  **********************
+********************************************************************************
+
+Abend Code. . . . . . . . . : S806-X'4' (See "Abend Code S806-X'4' Explanation")
+
+Load Module Name. . . . . . : n/a
+
+CSECT Name. . . . . . . . . : CSVABEND
+
+Machine Instruction . . . . : 0A0D          SVC     13 (ABEND)
+  At Address. . . . . . . . : 0144EF38 (CSECT CSVABEND offset X'BA0')
+  AMODE . . . . . . . . . . : 31
+
+Instructions around point of failure:
+
+  Offset   Hex            Instruction
+  -------- -------------- -----------------------------------------------------------------
+       -22 43C0 5078      IC      R12,120(,R5)
+       -1E 185C           LR      R5,R12
+       -1C 8950 0008      SLL     R5,8
+       -18 16F5           OR      R15,R5
+       -16 1824           LR      R2,R4
+       -14 1837           LR      R3,R7
+       -12 184B           LR      R4,R11
+       -10 18E1           LR      R14,R1
+        -E 89E0 000C      SLL     R14,12
+        -A 54E0 9038      N       R14,56(,R9)
+        -6 A5EA 8400      OILH    R14,X'8400'
+        -2 181E           LR      R1,R14
+  0144EF38 0A0D           SVC     13        (ABEND)
+        +2 18FB           LR      R15,R11
+        +4 180C           LR      R0,R12
+        +6 181D           LR      R1,R13
+        +8 58E0 02FC      L       R14,764
+        +C 58D0 E248      L       R13,584(,R14)
+       +10 0DED           BASR    R14,R13
+       +12 18BF           LR      R11,R15
+
+--------------------------------------------------------------------------------
+<H3> Associated Messages
+
+CSV003I REQUESTED MODULE MAPLENOP NOT FOUND
+
+  CSV003I REQUESTED MODULE <mod> NOT FOUND
+
+  Explanation:
+
+  The system could not find the module entry point, <mod>, that a LINK, XCTL,
+  ATTACH, or LOAD macro specified. This can result from having an alias which is
+  not associated with an existing primary name, or an alias that matches a
+  primary name in another concatenated library.
+
+  In the message text:
+
+  <mod>
+      The name of the requested module.
+
+  System Action:
+
+  The task ends, unless ERRET is specified.
+
+  System Programmer Response:
+
+  If the error recurs and the program is not in error, look at the messages in
+  the job log for more information. Search problem reporting databases for a fix
+  for the problem. If no fix exists, contact the IBM Support Center. Provide the
+  source program listing for the job.
+
+  Programmer Response:
+
+  Ensure that the requesting program is not incorrectly modified. Ensure that
+  the load module library (or library concatenation) is indicated correctly and
+  that the indicated library (or library concatenation) contains the requested
+  program. For an alias name, ensure that the entry point attributes match that
+  of the load module which was previously loaded (that is, authorization, RMODE,
+  entry point displacement). Also, check that there are no duplicate aliases or
+  related primary module names in the library concatenation. MVS expects that
+  all module names and aliases are unique across every library.
+
+  Module:
+
+  CSVGETMD
+
+  Source:
+
+  Contents supervision (CSV)
+
+  Routing Code:
+
+  11
+
+  Descriptor Code:
+
+  Note 26
+
+
+--------------------------------------------------------------------------------
+<H3> Additional Event Details
+
+Program Status Word (PSW) . : 070C1000 8144EF3A
+  PSW Summary . . . . . . . : Primary Space Mode, PSW Key 0, AMODE 31,
+                              Supervisor State
+
+General Purpose Registers:
+  R0:  0_00003000 (Storage invalid)
+  R1:  0_84806000 (Module GDEIGCA + X'3E000')
+  R2:  0_00000000 (2048 bytes of storage addressable)
+  R3:  0_00000000 (2048 bytes of storage addressable)
+  R4:  0_00000000 (2048 bytes of storage addressable)
+  R5:  0_007D21D0 (187952 bytes of storage addressable)
+  R6:  0_000000FF (1793 bytes of storage addressable)
+  R7:  0_00000000 (2048 bytes of storage addressable)
+  R8:  0_7F5C8050 (Storage invalid)
+  R9:  0_0144F460 (126213024 bytes of storage addressable)
+  R10: 0_00000000 (2048 bytes of storage addressable)
+  R11: 0_00000000 (2048 bytes of storage addressable)
+  R12: 0_00000000 (2048 bytes of storage addressable)
+  R13: 0_7F5C8050 (Storage invalid)
+  R14: 0_84806000 (Module GDEIGCA + X'3E000')
+  R15: 0_00000004 (2044 bytes of storage addressable)
+
+--------------------------------------------------------------------------------
+<H3> Abend Code S806-X'4' Explanation
+
+Explanation:  The supervisor, or the Supervisor Call (SVC) for the BLDL (build a
+directory entry list) macro, detected an error during the processing of a
+LINK(X), XCTL(X), ATTACH(X), or LOAD macro with the EP (entry point) or EPLOC
+(EP location (address)) operand.
+
+The reason code in register 15 identifies the error:
+
+Code      Explanation
+
+04        The system could not find the module, whose entry point is the value
+          of the EP or EPLOC operand, in the indicated library (private library,
+          job library, or link library).  This situation can occur when
+          LSEARCH=YES is specified on the macro and the limited library search
+          fails to locate the module.
+
+Source: Contents supervision (CSV)
+
+System Action:  The system issues a message depending on the reason code
+accompanying the abend:
+
+Code      Message
+
+04        CSV003I
+
+The system issues an ABEND dump.
+
+Programmer Response:  If the reason code is X'04', this is probably a user
+error. Make sure that the requesting program was not incorrectly modified. Make
+sure that the source library was indicated correctly and that the indicated
+library does contain the requested program. For an alias name, make sure the
+alias attributes match the attributes of the load module which was already
+loaded; check the library authorization, RMODE, and alias entry point
+displacement).  Correct the error, and run the job step again.
+
+If the reason code is X'14' or X'18', report this completion code to the system
+programmer.
+
+If the reason code is X'0C' or a X'1C', it is a probable user error.  Make sure
+that the DCB for the library is valid and open. Correct the error and run the
+job step again.
+
+System Programmer Response:  For reason code X'08', resubmit the job.  Then have
+the operator enter a START GTF command specifying tape output, MODE=EXT and
+TIME=YES. Have the operator reply TRACE=IO in response to message AHL100A.
+
+Format the output with the IPCS GTFTRACE subcommand.
+
+If the error recurs and the program is not in error, see the system programmer
+response for messages in the job log.
+
+For reason code X'2C' or if the problem persists, search problem reporting data
+bases for a fix for the problem. If no fix exists, contact the IBM Support
+Center. Provide the ABEND dump and the source program listing for the job.
+
+
+<H1> S Y S T E M - W I D E   I N F O R M A T I O N
+
+
+================================================================================
+<H2> MESSAGES
+
+--------------------------------------------------------------------------------
+<H3> Non-Event-Related Messages
+
+CSV028I ABEND806-04  JOBNAME=OPSJOB3   STEPNAME=STEP1
+
+  CSV028I [ABEND<cde>-<return-code>] JOBNAME=<jjj> STEPNAME=<sss>
+
+  Explanation:
+
+  This message follows a related message (of the format CSV0xxI) that indicates
+  an error occurred during the processing of a LINK, LOAD, ATTACH, or XCTL
+  macro. CSV028I indicates which job is associated with the error described in
+  the related CSV0xxI message.
+
+  In the message text:
+
+  <cde>
+      The system completion code.
+  <return-code>
+      The return code.
+  <jjj>
+      The jobname.
+  <sss>
+      The stepname.
+
+  If the ERRET parameter is coded on the macro, ABEND<cde-rc> will not appear in
+  the message.
+
+  System Action:
+
+  Refer to the system action for the CSV0xxI message that was issued before
+  CSV028I.
+
+  Programmer Response:
+
+  Refer to the programmer response for the CSV0xxI message. If <cde> appears in
+  the message text, see the explanation of abend code X'<cde>'.
+
+  Module:
+
+  CSVABEND
+
+  Source:
+
+  Contents supervision (CSV)
+
+  Routing Code:
+
+  9,11
+
+  Descriptor Code:
+
+  Note 26
+
+
+
+<H1> A B E N D   J O B   I N F O R M A T I O N
+
+
+Abend Job Information:
+
+  Abend Date. . . . . . . . : 2026/11/23
+  Abend Time. . . . . . . . : 19:44:56
+  System Name . . . . . . . : S0W1
+  Job Type. . . . . . . . . : Batch
+  Job ID. . . . . . . . . . : JOB06153
+  Job Name. . . . . . . . . : OPSJOB3
+  Job Step Name . . . . . . : STEP1
+  ASID. . . . . . . . . . . : 2F
+  Abend TCB Address . . . . : 007D2030
+  Job Execution Class . . . : A
+  Region Size . . . . . . . : 1M
+  EXEC Program Name . . . . : MAPLENOP
+  User ID . . . . . . . . . : Z67944
+  Accounting Information. . : 1
+
+Execution Environment:
+
+  Operating System. . . . . : z/OS V3R1M0
+  Data Facility Product . . : DFSMS z/OS V3R1M0
+  Job Entry Subsystem . . . : JES2
+  Language Environment. . . : n/a
+  CPU Model . . . . . . . . : 3931 (z16)
+
+
+<H1> O P T I O N S
+
+
+Options in Effect:
+
+  Detail(Medium)
+  NoErrorHandler
+  Language(ENU)
+  NoLocale
+  MaxMiniDumpPages(4096) - not exceeded
+  NoDup(CICSfast(5),NoIncludeExecCicsDump) - not a duplicate
+  NoDup(ImageFast(5)) - not a duplicate
+  NoDup(Normal(24),NoJobname) - not a duplicate
+  NoPermitLangx
+  PreferredFormattingWidth(80)
+  NoPrintInactiveCOBOL
+  RetainDump(Auto)
+  Source
+  SpinIDIREPRT
+  StoragePrintLimit(256K) - not exceeded
+  SystemWidePreferred(StorageAreas(Hex))
+
+  Data Sets:
+
+    The following Fault Analyzer data set or path names were either
+    preallocated, specified via DataSets options, or provided as defaults.
+
+    DDname   Data Set or Path Name
+    -------- --------------------------------------------
+    IDIDOC   ISM402.SIDIDOC1
+    IDIHIST  NULLFILE
+    IDIMAPS  ISM402.SIDIMAPS
+    IDIVSENU ISM402.IDIVSENU
+
+
+Fault Analyzer was invoked via the MVS IEAVTABX exit (IDIXDCAP). Its execution
+time was 2.74 seconds. It used 0.05 CPU seconds and 0.83 megabytes of allocated
+storage.
+
+End of Fault Analyzer report (2026/11/23 19:44:59).
+
+

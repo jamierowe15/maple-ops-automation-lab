@@ -1,0 +1,17 @@
+* RUNBOOK  Planned site switch SITEA -> SITEB              v1.0
+* Modelled on a GDPS planned-action script: checks first, then
+* stop work, switch the disk mirror, move the active site, restart.
+CHECK   ACTIVE=SITEA
+CHECK   SITEB.STATUS=READY
+CHECK   MIRROR.STATE=DUPLEX
+MSG     Planned site switch SITEA to SITEB is starting
+STOP    MAPLEONLINE AT SITEA
+STOP    MAPLEBATCH AT SITEA
+SWITCH  MIRROR TO SITEB
+SET     ACTIVE=SITEB
+START   MAPLEBATCH AT SITEB JOB=OPSDRJ
+START   MAPLEONLINE AT SITEB
+VERIFY  MAPLEBATCH.SITEB=UP
+VERIFY  MAPLEONLINE.SITEB=UP
+VERIFY  MIRROR.PRIMARY=SITEB
+MSG     Site switch complete, SITEB is now the active site

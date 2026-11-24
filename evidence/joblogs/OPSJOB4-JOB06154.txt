@@ -1,0 +1,54 @@
+Spool file: JESMSGLG (ID #2, Step: JES2)
+1                   J E S 2  J O B  L O G  --  S Y S T E M  S 0 W 1  --  N O D E  S V S C J E S 2
+0
+ 19.45.04 JOB06154 ---- MONDAY,    23 NOV 2026 ----
+ 19.45.04 JOB06154  IRR010I  USERID Z67944   IS ASSIGNED TO THIS JOB.
+ 19.45.04 JOB06154  ICH70001I Z67944   LAST ACCESS AT 19:44:56 ON MONDAY, NOVEMBER 23, 2026
+ 19.45.04 JOB06154  $HASP373 OPSJOB4  STARTED - INIT 1    - CLASS A        - SYS S0W1
+ 19.45.04 JOB06154  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+ 19.45.04 JOB06154  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+ 19.45.04 JOB06154  -STEP1                00      1      0       .00       .00     .0                BATCH        0     0     0     0
+ 19.45.04 JOB06154  -STEP2                00      2      0       .00       .00     .0                BATCH        0     0     0     0
+ 19.45.04 JOB06154  -OPSJOB4  ENDED.  NAME-                     TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+ 19.45.04 JOB06154  $HASP395 OPSJOB4  ENDED - RC=0000
+0------ JES2 JOB STATISTICS ------
+-  23 NOV 2026 JOB EXECUTION DATE
+-            7 CARDS READ
+-           49 SYSOUT PRINT RECORDS
+-            0 SYSOUT PUNCH RECORDS
+-            4 SYSOUT SPOOL KBYTES
+-         0.00 MINUTES EXECUTION TIME
+
+Spool file: JESJCL (ID #3, Step: JES2)
+        1 //OPSJOB4  JOB 1,NOTIFY=&SYSUID,MSGLEVEL=(1,1)                          JOB06154
+          //*-------------------------------------------------------------------
+          //* TEST JOB 4 - TWO STEPS THAT BOTH END CC 0000.
+          //* EXPECTED MONITOR ACTION: LOG AS CLEAN.
+          //*-------------------------------------------------------------------
+          IEFC653I SUBSTITUTION JCL - 1,NOTIFY=Z67944,MSGLEVEL=(1,1)
+        2 //STEP1    EXEC PGM=IEFBR14
+        3 //STEP2    EXEC PGM=IEFBR14
+
+Spool file: JESYSMSG (ID #4, Step: JES2)
+ ICH70001I Z67944   LAST ACCESS AT 19:44:56 ON MONDAY, NOVEMBER 23, 2026
+ IEFA111I OPSJOB4 IS USING THE FOLLOWING JOB RELATED SETTINGS:
+          SWA=ABOVE,TIOT SIZE=32K,DSENQSHR=DISALLOW,GDGBIAS=JOB
+ IEF142I OPSJOB4 STEP1 - STEP WAS EXECUTED - COND CODE 0000
+ IEF373I STEP/STEP1   /START 2026327.1945
+ IEF032I STEP/STEP1   /STOP  2026327.1945
+         CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+         VIRT:     8K  SYS:   248K  EXT:        0K  SYS:    11328K
+         ATB- REAL:                  1244K  SLOTS:                     0K
+              VIRT- ALLOC:      14M SHRD:       0M
+ IEF142I OPSJOB4 STEP2 - STEP WAS EXECUTED - COND CODE 0000
+ IEF373I STEP/STEP2   /START 2026327.1945
+ IEF032I STEP/STEP2   /STOP  2026327.1945
+         CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+         VIRT:     8K  SYS:   248K  EXT:        0K  SYS:    11332K
+         ATB- REAL:                  1244K  SLOTS:                     0K
+              VIRT- ALLOC:      14M SHRD:       0M
+ IEF375I  JOB/OPSJOB4 /START 2026327.1945
+ IEF033I  JOB/OPSJOB4 /STOP  2026327.1945
+         CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+
+

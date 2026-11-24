@@ -1,0 +1,25 @@
+* MAPLE OPS AUTOMATION TABLE                                    v1.0
+* One rule per line. For each log line the FIRST rule whose KEY is
+* in the line and whose JOB pattern matches the job name wins.
+* KEY  message ID, or a pseudo key worked out from IEF142I codes:
+*      RC>4 (worst step CC above 4), RC=4, CLEAN (CC 0, no hits)
+* JOB  *  or *SUFFIX  or PREFIX*  or an exact job name
+* SEV  INFO WARN HIGH CRIT      ACTION  LOG NOTIFY ESCALATE RECOVER
+* MAX  retry limit for RECOVER
+* RECOVERY  JCL member to submit   RERUN  member to submit after
+*      it, or - when the recovery job resubmits the failed job
+*      itself (OPSFIX1 does, so the rerun can't start too early)
+*
+* IEF212I and IEFA107I both mean DATA SET NOT FOUND (older / newer z/OS)
+* KEY      JOB       SEV   ACTION    MAX  RECOVERY  RERUN
+IEF212I    OPSJOB1   HIGH  RECOVER   2    OPSFIX1   -
+IEFA107I   OPSJOB1   HIGH  RECOVER   2    OPSFIX1   -
+IEF212I    *         HIGH  ESCALATE  0    -         -
+IEFA107I   *         HIGH  ESCALATE  0    -         -
+IEF450I    *         CRIT  ESCALATE  0    -         -
+CEE3207S   *         CRIT  ESCALATE  0    -         -
+CSV003I    *         HIGH  ESCALATE  0    -         -
+IEC141I    *         HIGH  ESCALATE  0    -         -
+RC>4       *         HIGH  ESCALATE  0    -         -
+RC=4       *         WARN  NOTIFY    0    -         -
+CLEAN      *         INFO  LOG       0    -         -

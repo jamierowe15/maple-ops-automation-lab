@@ -1,0 +1,11 @@
+//OPSJOB1  JOB 1,NOTIFY=&SYSUID,MSGLEVEL=(1,1)
+//*-------------------------------------------------------------------
+//* TEST JOB 1 - READS A DATA SET THAT DOES NOT EXIST YET, SO THE
+//* FIRST RUN ENDS IN A JCL ERROR.  THE MONITOR'S RECOVER RULE RUNS
+//* OPSFIX1, WHICH CREATES THE DATA SET AND RESUBMITS THIS JOB.
+//*-------------------------------------------------------------------
+//STEP1    EXEC PGM=IEBGENER
+//SYSPRINT DD SYSOUT=*
+//SYSIN    DD DUMMY
+//SYSUT1   DD DISP=SHR,DSN=&SYSUID..MAPLE.OPS.INPUT
+//SYSUT2   DD SYSOUT=*
